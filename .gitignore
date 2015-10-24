@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Our mario build on OS X
+/mario
