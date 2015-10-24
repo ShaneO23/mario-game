@@ -260,7 +260,6 @@ int main( int argc, char* args[] )
     // Rappel : la console reste utilisable
     printf("\nVous pouvez faire des traces par printf sur la fenetre console pour debugger ... \n") ;
     printf("Le point de depart va s'afficher.\nUtiliser les fleches pour deplacer Mario\nFermer la fenetre pour terminer\n") ;
-    SDL_Delay(2000) ;
     //
     // Initialisations graphique SDL
     // LAISSER TEL QUEL
@@ -431,7 +430,6 @@ int main( int argc, char* args[] )
         IUTSDL_RefreshScreen(sdlRenderer);
     }
 
-    SDL_Delay(2000);
 
     // Ménage
     SDL_RemoveTimer( timerID );
