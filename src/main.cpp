@@ -9,7 +9,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <SDL2/SDL.h>
+
 #include "IUTSDL.h"
+#include "object.h"
+#include "bomb.h"
 
 
 // -----------------------------------------------------
@@ -184,6 +187,16 @@ void wallCreater(SDL_Renderer *sdlRenderer)
     }
 
 }
+void RenderObject(SDL_Renderer *sdlRenderer, class Object *obj) {
+    SDL_Texture *texture = loadTexture(sdlRenderer, obj->texture);
+    SDL_Rect rect;
+    rect.x = CASE_W * obj->x;
+    rect.y = CASE_H * obj->y;
+    rect.w = CASE_W;
+    rect.h = CASE_H;
+    SDL_RenderCopy(sdlRenderer, texture, NULL, &rect);
+}
+
 
 void Cones(SDL_Renderer *sdlRenderer)
 {
@@ -191,33 +204,21 @@ void Cones(SDL_Renderer *sdlRenderer)
 
     for (i=5 ; i<20 ; i++)
     {
-            SDL_Rect rectCones ;
-            rectCones.x = 5*CASE_W ;
-            rectCones.y = 10*CASE_H ;
-            rectCones.w = CASE_W ;
-            rectCones.h = CASE_H ;
-            SDL_RenderCopy(sdlRenderer, pTextureCones, NULL, &rectCones);
-
+        RenderObject(sdlRenderer, new Object(4, 3+i, "dollar.bmp"));
     }
 
 }
+
 
 void Bomb(SDL_Renderer *sdlRenderer)
-{
-    int i;
-
-    for (i=5 ; i<20 ; i++)
-    {
-            SDL_Rect rectBomb ;
-            rectBomb.x = 5*CASE_W ;
-            rectBomb.y = 10*CASE_H ;
-            rectBomb.w = CASE_W ;
-            rectBomb.h = CASE_H ;
-            SDL_RenderCopy(sdlRenderer, pTextureBomb, NULL, &rectBomb);
-
+{   
+    for(int i=0; i < 3; i++) {
+        int dx = rand() % 10;
+        Object *bomb = MakeBomb(5+dx, 10);
+        RenderObject(sdlRenderer, bomb);
     }
-
 }
+
 // Fonction d'initialisation du jeu
 void init(SDL_Renderer *sdlRenderer)
 {
