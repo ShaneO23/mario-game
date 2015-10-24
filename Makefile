@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-std=c++11 -c -Wall
 SDLFLAGS=`sdl2-config --cflags --libs` -framework Cocoa
-SOURCES=src/main.cpp src/IUTSDL.cpp src/object.cpp src/bomb.cpp
+SOURCES=src/main.cpp src/IUTSDL.cpp src/object.cpp src/bomb.cpp src/textureloader.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=mario
 
