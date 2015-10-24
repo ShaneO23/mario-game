@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -Wall
+CFLAGS=-std=c++11 -c -Wall
 SDLFLAGS=`sdl2-config --cflags --libs` -framework Cocoa
 SOURCES=src/main.cpp src/IUTSDL.cpp src/object.cpp src/bomb.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
