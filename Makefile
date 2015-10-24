@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall
 SDLFLAGS=`sdl2-config --cflags --libs` -framework Cocoa
-SOURCES=main.cpp IUTSDL.cpp
+SOURCES=src/main.cpp src/IUTSDL.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=mario
 
