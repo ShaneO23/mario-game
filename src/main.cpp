@@ -94,21 +94,27 @@ Uint32 callback( Uint32 interval, void* param )
     return interval;
 }
 
+SDL_Texture *loadTexture(SDL_Renderer *sdlRenderer, char *filename) {
+    char fullFilename[1024];
+    sprintf(fullFilename, "images/%s", filename);
+    return IUTSDL_LoadTexture(sdlRenderer, fullFilename ,0xFF,0xFF,0xFF);
+}
+
 // -----------------------------------------------------
 // Initialisations jeu
 // -----------------------------------------------------
 // Chargement des bitmaps pour affichage
 void initTextures(SDL_Renderer *sdlRenderer)
 {
-    pTextureFond=IUTSDL_LoadTexture(sdlRenderer, "fond.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMur=IUTSDL_LoadTexture(sdlRenderer, "mur.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_LEFT]=IUTSDL_LoadTexture(sdlRenderer, "mario-gauche.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_RIGHT]=IUTSDL_LoadTexture(sdlRenderer, "mario-droite.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_UP]=IUTSDL_LoadTexture(sdlRenderer, "mario-haut.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_DOWN]=IUTSDL_LoadTexture(sdlRenderer, "mario-bas.bmp" ,0xFF,0xFF,0xFF);
+    pTextureFond=loadTexture(sdlRenderer, "fond.bmp");
+    pTextureMur=loadTexture(sdlRenderer, "mur.bmp");
+    pTextureMario[MOVE_LEFT]=loadTexture(sdlRenderer, "mario-gauche.bmp");
+    pTextureMario[MOVE_RIGHT]=loadTexture(sdlRenderer, "mario-droite.bmp");
+    pTextureMario[MOVE_UP]=loadTexture(sdlRenderer, "mario-haut.bmp");
+    pTextureMario[MOVE_DOWN]=loadTexture(sdlRenderer, "mario-bas.bmp");
 
-    pTextureCones=IUTSDL_LoadTexture(sdlRenderer, "dollar.bmp" ,0xFF,0xFF,0xFF);
-    pTextureBomb=IUTSDL_LoadTexture(sdlRenderer, "bombe.bmp" ,0xFF,0xFF,0xFF);
+    pTextureCones=loadTexture(sdlRenderer, "dollar.bmp");
+    pTextureBomb=loadTexture(sdlRenderer, "bombe.bmp");
 
 }
 
