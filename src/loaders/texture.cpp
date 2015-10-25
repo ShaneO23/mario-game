@@ -1,5 +1,5 @@
-#include "textureloader.h"
-#include "IUTSDL.h"
+#include "texture.h"
+#include "../IUTSDL.h"
 #include <SDL2/SDL.h>
 
 using namespace std;
