@@ -51,6 +51,7 @@ void Game::Run() {
 }
 
 void Game::render() {
+    SDL_RenderClear(this->renderer);
     this->renderMap(this->map);
     IUTSDL_RefreshScreen(this->renderer);
 }
