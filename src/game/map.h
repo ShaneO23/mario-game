@@ -12,9 +12,10 @@ class Map {
      TileMap tiles;
 
 public:
-    Map();
+    Map(TileMap tiles);
     int Width();
     int Height();
+    const TileMap &Tiles(); 
 };
 
 #endif
