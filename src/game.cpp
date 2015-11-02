@@ -56,6 +56,7 @@ void Game::render() {
     IUTSDL_RefreshScreen(this->renderer);
 }
 
+const char *bgTexture(const char *texture);
 void Game::renderMap(Map *map) {
     auto cellW = 34;
     auto cellH = 34;
@@ -72,6 +73,13 @@ void Game::renderMap(Map *map) {
             rect.w = cellW;
             rect.h = cellH;
 
+            // Render BG
+            auto bg = bgTexture(tile);
+            if(bg != NULL) {
+                auto bgT = this->textureLoader->Load(bg);
+                SDL_RenderCopy(this->renderer, bgT, NULL, &rect);
+            }
+
             // Load texture
             auto texture = this->textureLoader->Load(std::string(tile));
 
@@ -84,4 +92,16 @@ void Game::renderMap(Map *map) {
         // Increment y
         y++;
     }
+}
+
+const char *bgTexture(const char *texture) {
+    if(strcmp(texture, "bridge") == 0) {
+        return "water";
+    } else if(strcmp(texture, "cannon") == 0) {
+        return "background";
+    } else if(strcmp(texture, "mario_start") == 0) {
+        return "background";
+    }
+
+    return NULL;
 }
