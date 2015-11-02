@@ -34,7 +34,7 @@ SDL_Texture *TextureLoader::Load(const string &name) {
 }
 
 string TextureLoader::filename(const string &name) {
-    return this->prefix + name;
+    return this->prefix + name + ".bmp";
 }
 
 SDL_Texture *TextureLoader::loadFromDisk(const string &name) {
