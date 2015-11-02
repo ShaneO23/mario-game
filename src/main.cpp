@@ -36,11 +36,11 @@ int main(int argc, char* argv[]) {
     }
 
     // Setup renderer
-    //sdlRenderer = SDL_CreateRenderer(pScreen, -1, 0 /*SDL_RENDERER_ACCELERATED*/);
-    sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_SOFTWARE);
+    sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    //sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_SOFTWARE);
 
     // Clear video buffer
-    IUTSDL_ClearScreen(sdlRenderer);
+    SDL_RenderClear(sdlRenderer);
 
     // Setup game
     Game *game = new Game(sdlRenderer);
