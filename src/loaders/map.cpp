@@ -31,7 +31,7 @@ Map *ParseMap(const std::string &data) {
         tiles.push_back(tileLine);
     }
 
-    return new Map();
+    return new Map(tiles);
 }
 
 // Converts a level map's char to it's corresponding texture/object
