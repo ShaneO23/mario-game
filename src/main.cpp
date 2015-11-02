@@ -39,6 +39,10 @@ int main(int argc, char* argv[]) {
     sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     //sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_SOFTWARE);
 
+    // Nicely rescale the renderer
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+    SDL_RenderSetLogicalSize(sdlRenderer, SCREEN_W, SCREEN_H);
+
     // Clear video buffer
     SDL_RenderClear(sdlRenderer);
 
