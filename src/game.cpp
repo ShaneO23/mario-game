@@ -18,7 +18,12 @@ Game::~Game() {
 }
 
 void Game::Run() {
+    // Are we running ?
     bool running = true;
+    // Our target FPS
+    int FRAMERATE = 20;
+    // Counter of previous ticks
+    int prevTicks = SDL_GetTicks();
 
     this->render();
     while(running) {
@@ -29,6 +34,16 @@ void Game::Run() {
                     running = false;
                     break;
             }
+        }
+
+        // Update ticks to compute FPS
+        int currentTicks = SDL_GetTicks();
+        int deltaTicks = currentTicks - prevTicks;
+        prevTicks = currentTicks;
+
+        // Wait if necessary
+        if(deltaTicks < 1000/FRAMERATE) {
+            SDL_Delay((1000/FRAMERATE) - deltaTicks);
         }
 
         this->render();
