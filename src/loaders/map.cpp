@@ -43,6 +43,8 @@ const char *CharToTile(char ch) {
             return "water";
         case 'M':
             return "mario_start";
+        case 'C':
+            return "cannon";
         case 'B':
             return "bridge";
     }
