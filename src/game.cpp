@@ -1,6 +1,8 @@
 #include "game.h"
 #include "IUTSDL.h"
 
+#include <string.h>
+
 Game::Game(SDL_Renderer *renderer) {
     this->renderer = renderer;
 

@@ -1,0 +1,91 @@
+# depslib dependency file v1.0
+1446129592 source:\\vboxsvr\mario-game\src\bomb.cpp
+	"bomb.h"
+
+1446129592 \\vboxsvr\mario-game\src\bomb.h
+	"object.h"
+
+1446129592 \\vboxsvr\mario-game\src\object.h
+
+1451308287 source:\\vboxsvr\mario-game\src\game.cpp
+	"game.h"
+	"IUTSDL.h"
+	<string.h>
+
+1451307197 \\vboxsvr\mario-game\src\game.h
+	"loaders/map.h"
+	"loaders/texture.h"
+
+1451307197 \\vboxsvr\mario-game\src\loaders\map.h
+	<string>
+	<vector>
+	"../game/map.h"
+	"../tools/files.h"
+	"../tools/strings.h"
+
+1451307197 \\vboxsvr\mario-game\src\game\map.h
+	<string>
+	<vector>
+
+1446129592 \\vboxsvr\mario-game\src\tools\files.h
+	<fstream>
+	<string>
+
+1446129592 \\vboxsvr\mario-game\src\tools\strings.h
+	<string>
+	<vector>
+
+1446129592 \\vboxsvr\mario-game\src\loaders\texture.h
+	<map>
+	<string>
+	<SDL2/SDL.h>
+
+1446129592 \\vboxsvr\mario-game\src\iutsdl.h
+
+1451307197 source:\\vboxsvr\mario-game\src\game\map.cpp
+	"map.h"
+
+1446129592 source:\\vboxsvr\mario-game\src\iutsdl.cpp
+	<SDL2/SDL.h>
+	<stdio.h>
+	"IUTSDL.h"
+
+1451307197 source:\\vboxsvr\mario-game\src\loaders\map.cpp
+	"map.h"
+	"../tools/dirs.h"
+
+1446129592 \\vboxsvr\mario-game\src\tools\dirs.h
+	<vector>
+	<string>
+
+1451307197 source:\\vboxsvr\mario-game\src\loaders\texture.cpp
+	"texture.h"
+	"../IUTSDL.h"
+	<SDL2/SDL.h>
+
+1451307197 source:\\vboxsvr\mario-game\src\main.cpp
+	"game.h"
+	"IUTSDL.h"
+
+1451307197 source:\\vboxsvr\mario-game\src\mainold.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<SDL2/SDL.h>
+	"IUTSDL.h"
+	"object.h"
+	"bomb.h"
+
+1446129592 source:\\vboxsvr\mario-game\src\object.cpp
+	"object.h"
+
+1446129592 source:\\vboxsvr\mario-game\src\tools\dirs.cpp
+	"dirs.h"
+	<dirent.h>
+
+1451307197 source:\\vboxsvr\mario-game\src\tools\files.cpp
+	"files.h"
+
+1446129592 source:\\vboxsvr\mario-game\src\tools\strings.cpp
+	"strings.h"
+
