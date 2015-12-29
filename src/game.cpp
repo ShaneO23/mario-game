@@ -3,6 +3,14 @@
 #include "game.h"
 #include "IUTSDL.h"
 
+typedef enum Direction {
+    MOVE_NONE,
+    MOVE_LEFT,
+    MOVE_RIGHT,
+    MOVE_UP,
+    MOVE_DOWN,
+} Direction;
+
 Game::Game(SDL_Renderer *renderer) {
     this->renderer = renderer;
 
@@ -38,6 +46,9 @@ void Game::Run() {
 
     this->render();
     while(running) {
+        // Default direction
+        Direction direction = MOVE_NONE;
+
         // Get events
         SDL_Event(event);
         while( SDL_PollEvent( &event ) != 0 ) {
@@ -45,6 +56,21 @@ void Game::Run() {
                 case SDL_QUIT :
                     running = false;
                     break;
+                case SDL_KEYDOWN :
+                    switch(event.key.keysym.sym) {
+                    case SDLK_LEFT:
+                        direction = MOVE_LEFT;
+                        break;
+                    case SDLK_RIGHT:
+                        direction = MOVE_RIGHT;
+                        break;
+                    case SDLK_UP:
+                        direction = MOVE_UP;
+                        break;
+                    case SDLK_DOWN:
+                        direction = MOVE_DOWN;
+                        break;
+                    }
             }
         }
 
@@ -61,8 +87,22 @@ void Game::Run() {
         // Update logic
         auto pi = 3.14159;
         auto t = currentTicks;
-        this->mario->X = 50+50*sin(t/50/(2*pi));
-        this->mario->Y = 80;
+        //this->mario->X = 50+50*sin(t/50/(2*pi));
+        //this->mario->Y = 80;
+        switch(direction) {
+            case MOVE_RIGHT:
+                this->mario->X += 3;
+                break;
+            case MOVE_LEFT:
+                this->mario->X -= 3;
+                break;
+            case MOVE_DOWN:
+                this->mario->Y += 3;
+                break;
+            case MOVE_UP:
+                this->mario->Y -= 3;
+                break;
+        }
 
         Object *bomb = this->objects->at(1);
         bomb->X = 200 + 50*cos(t/50/(2*pi));
