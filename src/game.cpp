@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "game.h"
 #include "IUTSDL.h"
 
@@ -10,11 +12,20 @@ Game::Game(SDL_Renderer *renderer) {
 
     // Load map
     this->map = this->mapLoader->Load("sample.txt");
+
+    // Setup mario
+    this->mario = new Mario();
+
+    // Setup objects
+    this->objects = new std::vector<Object *>();
+    this->objects->push_back(mario);
+    this->objects->push_back(new Bomb());
 }
 
 Game::~Game() {
     delete(this->mapLoader);
     delete(this->textureLoader);
+    delete(this->objects);
 }
 
 void Game::Run() {
@@ -27,6 +38,7 @@ void Game::Run() {
 
     this->render();
     while(running) {
+        // Get events
         SDL_Event(event);
         while( SDL_PollEvent( &event ) != 0 ) {
             switch(event.type) {
@@ -46,18 +58,35 @@ void Game::Run() {
             SDL_Delay((1000/FRAMERATE) - deltaTicks);
         }
 
+        // Update logic
+        auto pi = 3.14159;
+        auto t = currentTicks;
+        this->mario->X = 50+50*sin(t/50/(2*pi));
+        this->mario->Y = 80;
+
+        Object *bomb = this->objects->at(1);
+        bomb->X = 200 + 50*cos(t/50/(2*pi));
+        bomb->Y = 200 + 50*sin(t/50/(2*pi));
+
+
+        // Detect collisions
+
+        // Render
         this->render();
     }
 }
 
 void Game::render() {
     SDL_RenderClear(this->renderer);
-    this->renderMap(this->map);
+    this->renderMap();
+    this->renderObjects();
     IUTSDL_RefreshScreen(this->renderer);
 }
 
 const char *bgTexture(const char *texture);
-void Game::renderMap(Map *map) {
+void Game::renderMap() {
+    auto map = this->map;
+
     auto cellW = 34;
     auto cellH = 34;
 
@@ -94,12 +123,43 @@ void Game::renderMap(Map *map) {
     }
 }
 
+SDL_Rect toSDLRect(Rect r);
+void Game::renderObjects() {
+    auto objects = this->objects;
+
+    for(auto &obj : *objects) {
+        // Get object's rectange
+        auto rect = toSDLRect(*obj);
+
+        // Load texture
+        auto texture = this->textureLoader->Load(std::string(obj->Type()));
+
+        // Render
+        SDL_RenderCopy(this->renderer, texture, NULL, &rect);
+        // Debug render
+        if(true) {
+            auto boundingRect = toSDLRect(obj->BoundingRect());
+            SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+            SDL_RenderDrawRect(this->renderer, &boundingRect);
+        }
+    }
+}
+
+SDL_Rect toSDLRect(Rect r) {
+    SDL_Rect rect;
+    rect.x = r.X;
+    rect.y = r.Y;
+    rect.w = r.Width;
+    rect.h = r.Height;
+    return rect;
+}
+
 const char *bgTexture(const char *texture) {
     if(strcmp(texture, "bridge") == 0) {
         return "water";
     } else if(strcmp(texture, "cannon") == 0) {
         return "background";
-    } else if(strcmp(texture, "mario_start") == 0) {
+    } else if(strcmp(texture, "mario") == 0) {
         return "background";
     }
 
