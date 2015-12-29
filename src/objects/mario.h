@@ -14,6 +14,16 @@ struct Mario : Object {
     const char *Type() {
         return "mario";
     }
+
+    // Adjust bounding rect for sprite
+    Rect BoundingRect() {
+        Rect r;
+        r.X = this->X+10;
+        r.Y = this->Y+4;
+        r.Width = 14;
+        r.Height = 30;
+        return r;
+    }
 };
 
 #endif
