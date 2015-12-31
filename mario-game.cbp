@@ -32,11 +32,11 @@
 		<Compiler>
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
-			<Add directory="libs/SDL2-2.0.3/i686-w64-mingw32/include" />
+			<Add directory="libs/SDL/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
-			<Add directory="P:/SDL/SDL2-2.0.3/i686-w64-mingw32/lib" />
+			<Add directory="libs/SDL2/lib" />
 		</Linker>
 		<Unit filename="src/IUTSDL.cpp" />
 		<Unit filename="src/IUTSDL.h" />
