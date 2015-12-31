@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Depart_SDL2" />
+		<Option title="Mario-Game" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="libs/SDL2-2.0.3/include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -29,16 +30,35 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
-			<Add directory="P:/SDL/SDL2-2.0.3/i686-w64-mingw32/include" />
+			<Add directory="libs/SDL2-2.0.3/i686-w64-mingw32/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="P:/SDL/SDL2-2.0.3/i686-w64-mingw32/lib" />
 		</Linker>
-		<Unit filename="IUTSDL.cpp" />
-		<Unit filename="IUTSDL.h" />
-		<Unit filename="main.cpp" />
+		<Unit filename="src/IUTSDL.cpp" />
+		<Unit filename="src/IUTSDL.h" />
+		<Unit filename="src/bomb.cpp" />
+		<Unit filename="src/bomb.h" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/game.h" />
+		<Unit filename="src/game/map.cpp" />
+		<Unit filename="src/game/map.h" />
+		<Unit filename="src/loaders/map.cpp" />
+		<Unit filename="src/loaders/map.h" />
+		<Unit filename="src/loaders/texture.cpp" />
+		<Unit filename="src/loaders/texture.h" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/object.cpp" />
+		<Unit filename="src/object.h" />
+		<Unit filename="src/tools/dirs.cpp" />
+		<Unit filename="src/tools/dirs.h" />
+		<Unit filename="src/tools/files.cpp" />
+		<Unit filename="src/tools/files.h" />
+		<Unit filename="src/tools/strings.cpp" />
+		<Unit filename="src/tools/strings.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
