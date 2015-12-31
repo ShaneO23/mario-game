@@ -29,3 +29,7 @@
 
 # Our mario build on OS X
 /mario
+
+# Useless codeblocks files
+/mario-game.depend
+/mario-game.layout
