@@ -3,6 +3,7 @@
 #include "game.h"
 #include "IUTSDL.h"
 
+#include <math.h>
 #include <string.h>
 
 typedef enum Direction {
