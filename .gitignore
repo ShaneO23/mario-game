@@ -33,3 +33,9 @@
 # Useless codeblocks files
 /mario-game.depend
 /mario-game.layout
+
+# Useful lib static assets we want to keep
+!libs/SDL2/lib/*.lai
+!libs/SDL2/lib/*.la
+!libs/SDL2/lib/*.a
+!libs/SDL2/lib/*.lib
