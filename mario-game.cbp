@@ -37,26 +37,26 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="libs/SDL2/lib" />
 		</Linker>
-		<Unit filename="src/game/map.cpp" />
-		<Unit filename="src/game/map.h" />
-		<Unit filename="src/loaders/map.cpp" />
-		<Unit filename="src/loaders/map.h" />
-		<Unit filename="src/loaders/texture.cpp" />
-		<Unit filename="src/loaders/texture.h" />
-		<Unit filename="src/objects/bomb.h" />
-		<Unit filename="src/objects/mario.h" />
-		<Unit filename="src/objects/types.h" />
-		<Unit filename="src/IUTSDL.cpp" />
-		<Unit filename="src/IUTSDL.h" />
-		<Unit filename="src/game.cpp" />
-		<Unit filename="src/game.h" />
-		<Unit filename="src/main.cpp" />
-		<Unit filename="src/tools/dirs.cpp" />
-		<Unit filename="src/tools/dirs.h" />
-		<Unit filename="src/tools/files.cpp" />
-		<Unit filename="src/tools/files.h" />
-		<Unit filename="src/tools/strings.cpp" />
-		<Unit filename="src/tools/strings.h" />
+		<Unit filename="./src/game/map.cpp" />
+		<Unit filename="./src/game/map.h" />
+		<Unit filename="./src/loaders/map.cpp" />
+		<Unit filename="./src/loaders/map.h" />
+		<Unit filename="./src/loaders/texture.cpp" />
+		<Unit filename="./src/loaders/texture.h" />
+		<Unit filename="./src/objects/bomb.h" />
+		<Unit filename="./src/objects/mario.h" />
+		<Unit filename="./src/objects/types.h" />
+		<Unit filename="./src/IUTSDL.cpp" />
+		<Unit filename="./src/IUTSDL.h" />
+		<Unit filename="./src/game.cpp" />
+		<Unit filename="./src/game.h" />
+		<Unit filename="./src/main.cpp" />
+		<Unit filename="./src/tools/dirs.cpp" />
+		<Unit filename="./src/tools/dirs.h" />
+		<Unit filename="./src/tools/files.cpp" />
+		<Unit filename="./src/tools/files.h" />
+		<Unit filename="./src/tools/strings.cpp" />
+		<Unit filename="./src/tools/strings.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
