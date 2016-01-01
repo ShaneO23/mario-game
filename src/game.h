@@ -8,23 +8,13 @@
 #include "objects/mario.h"
 #include "objects/bomb.h"
 
-//Updated upstream
-/*class Game
-{
+class Game {
     SDL_Renderer            *renderer;
     TextureLoader           *textureLoader;
     MapLoader               *mapLoader;
     Map                     *map;
     std::vector<Object*>    *objects;
     Mario                   *mario;
-//=======*/
-class Game
-{
-    SDL_Renderer    *renderer;
-    TextureLoader   *textureLoader;
-    MapLoader       *mapLoader;
-    Map             *map;
-//>>>>>>> Stashed changes
 
     public:
     Game(SDL_Renderer *renderer);

@@ -12,13 +12,8 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-<<<<<<< Updated upstream
 					<Add option="-g" />
-					<Add directory="libs/SDL2-2.0.3/include" />
-=======
-					<Add option="-Wall" />
-					<Add directory="C:/Users/Shane/Desktop/TP Mario/SDL/SDL2-2.0.3/i686-w64-mingw32/include" />
->>>>>>> Stashed changes
+					<Add directory="libs/SDL2/include" />
 				</Compiler>
 				<Linker>
 					<Add directory="C:/Users/Shane/Desktop/TP Mario/SDL/SDL2-2.0.3/i686-w64-mingw32/lib" />
@@ -46,19 +41,12 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="libs/SDL2/lib" />
 		</Linker>
-<<<<<<< Updated upstream
-=======
-		<Unit filename="IUTSDL.cpp" />
-		<Unit filename="IUTSDL.h" />
-		<Unit filename="main.cpp" />
->>>>>>> Stashed changes
 		<Unit filename="src/IUTSDL.cpp" />
 		<Unit filename="src/IUTSDL.h" />
 		<Unit filename="src/bomb.cpp" />
 		<Unit filename="src/bomb.h" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/game.h" />
-<<<<<<< Updated upstream
 		<Unit filename="src/game/map.cpp" />
 		<Unit filename="src/game/map.h" />
 		<Unit filename="src/loaders/map.cpp" />
@@ -74,11 +62,6 @@
 		<Unit filename="src/tools/files.h" />
 		<Unit filename="src/tools/strings.cpp" />
 		<Unit filename="src/tools/strings.h" />
-=======
-		<Unit filename="src/main.cpp" />
-		<Unit filename="src/object.cpp" />
-		<Unit filename="src/object.h" />
->>>>>>> Stashed changes
 		<Extensions>
 			<code_completion />
 			<debugger />

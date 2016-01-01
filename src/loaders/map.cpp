@@ -43,13 +43,10 @@ const char *CharToTile(char ch)
             return "background";
         case 'W':
             return "water";
-<<<<<<< Updated upstream
         case 'M':
             return "mario";
-=======
         case 'S':
             return "mario_start";
->>>>>>> Stashed changes
         case 'C':
             return "dollar";
         case 'B':
@@ -66,8 +63,4 @@ const char *CharToTile(char ch)
 
     }
     return "background";
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
