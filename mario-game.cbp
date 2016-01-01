@@ -13,11 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="libs/SDL2/include" />
 				</Compiler>
-				<Linker>
-					<Add directory="C:/Users/Shane/Desktop/TP Mario/SDL/SDL2-2.0.3/i686-w64-mingw32/lib" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/Depart_SDL2" prefix_auto="1" extension_auto="1" />
@@ -41,21 +37,20 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="libs/SDL2/lib" />
 		</Linker>
-		<Unit filename="src/IUTSDL.cpp" />
-		<Unit filename="src/IUTSDL.h" />
-		<Unit filename="src/bomb.cpp" />
-		<Unit filename="src/bomb.h" />
-		<Unit filename="src/game.cpp" />
-		<Unit filename="src/game.h" />
 		<Unit filename="src/game/map.cpp" />
 		<Unit filename="src/game/map.h" />
 		<Unit filename="src/loaders/map.cpp" />
 		<Unit filename="src/loaders/map.h" />
 		<Unit filename="src/loaders/texture.cpp" />
 		<Unit filename="src/loaders/texture.h" />
-		<Unit filename="src/main.cpp" />
-		<Unit filename="src/object.cpp" />
-		<Unit filename="src/object.h" />
+		<Unit filename="src/objects/bomb.h" />
+		<Unit filename="src/objects/mario.h" />
+		<Unit filename="src/objects/types.h" />
+		<Unit filename="src/src/IUTSDL.cpp" />
+		<Unit filename="src/src/IUTSDL.h" />
+		<Unit filename="src/src/game.cpp" />
+		<Unit filename="src/src/game.h" />
+		<Unit filename="src/src/main.cpp" />
 		<Unit filename="src/tools/dirs.cpp" />
 		<Unit filename="src/tools/dirs.h" />
 		<Unit filename="src/tools/files.cpp" />
