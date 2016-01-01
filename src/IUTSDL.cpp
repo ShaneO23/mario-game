@@ -64,7 +64,8 @@ Uint32 IUTSDL_Init(Uint32 param)
    //***********************************************************
 
    if (error != NO_ERROR)
-     { IUTSDL_Print_Error("Fonction IUTSDL_Init()");
+     {
+         IUTSDL_Print_Error("Fonction IUTSDL_Init()");
      }  // Fin du if
 
    return error;
@@ -143,7 +144,8 @@ SDL_Window* IUTSDL_CreateWindow (const char titre[], Uint32 largeur, Uint32 haut
                               SDL_WINDOW_RESIZABLE);
 
    if (pScreen == NULL)
-     { IUTSDL_Print_Error("Fonction IUTSDL_CreateWindow()");
+     {
+          IUTSDL_Print_Error("Fonction IUTSDL_CreateWindow()");
      }  // Fin du if
 
    return pScreen;

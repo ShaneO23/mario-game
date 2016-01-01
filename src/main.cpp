@@ -15,7 +15,8 @@
 #define SCREEN_W NBC*CASE_W
 #define SCREEN_H NBL*CASE_H
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+ {
     // Window
     SDL_Window   *pScreen=NULL;
     // Video Buffer
@@ -30,10 +31,11 @@ int main(int argc, char* argv[]) {
 
     // Create Window
     pScreen = IUTSDL_CreateWindow(TITRE, SCREEN_W, SCREEN_H);
-    if (pScreen == NULL) {
-        printf("Error: IUTSDL\n") ;
-        exit(1) ;
-    }
+    if (pScreen == NULL)
+        {
+            printf("Error: IUTSDL\n") ;
+            exit(1) ;
+        }
 
     // Setup renderer
     sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);

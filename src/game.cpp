@@ -39,7 +39,8 @@ Game::~Game() {
     delete(this->objects);
 }
 
-void Game::Run() {
+void Game::Run()
+{
     // Are we running ?
     bool running = true;
     // Our target FPS
@@ -48,14 +49,20 @@ void Game::Run() {
     int prevTicks = SDL_GetTicks();
 
     this->render();
+<<<<<<< Updated upstream
     while(running) {
         // Default direction
         Direction direction = MOVE_NONE;
 
         // Get events
+=======
+    while(running)
+        {
+>>>>>>> Stashed changes
         SDL_Event(event);
         while( SDL_PollEvent( &event ) != 0 ) {
-            switch(event.type) {
+            switch(event.type)
+             {
                 case SDL_QUIT :
                     running = false;
                     break;
@@ -83,7 +90,8 @@ void Game::Run() {
         prevTicks = currentTicks;
 
         // Wait if necessary
-        if(deltaTicks < 1000/FRAMERATE) {
+        if(deltaTicks < 1000/FRAMERATE)
+            {
             SDL_Delay((1000/FRAMERATE) - deltaTicks);
         }
 
@@ -119,7 +127,8 @@ void Game::Run() {
     }
 }
 
-void Game::render() {
+void Game::render()
+{
     SDL_RenderClear(this->renderer);
     this->renderMap();
     this->renderObjects();
@@ -127,17 +136,24 @@ void Game::render() {
 }
 
 const char *bgTexture(const char *texture);
+<<<<<<< Updated upstream
 void Game::renderMap() {
     auto map = this->map;
 
+=======
+void Game::renderMap(Map *map)
+ {
+>>>>>>> Stashed changes
     auto cellW = 34;
     auto cellH = 34;
 
     // Offsets
     int y = 0;
-    for(auto &tileLine : map->Tiles()) {
+    for(auto &tileLine : map->Tiles())
+        {
         int x = 0;
-        for(const char *tile : tileLine) {
+        for(const char *tile : tileLine)
+         {
             // Build rect
             SDL_Rect rect;
             rect.x = x * cellW;
@@ -147,7 +163,8 @@ void Game::renderMap() {
 
             // Render BG
             auto bg = bgTexture(tile);
-            if(bg != NULL) {
+            if(bg != NULL)
+                {
                 auto bgT = this->textureLoader->Load(bg);
                 SDL_RenderCopy(this->renderer, bgT, NULL, &rect);
             }
@@ -166,6 +183,7 @@ void Game::renderMap() {
     }
 }
 
+<<<<<<< Updated upstream
 SDL_Rect toSDLRect(Rect r);
 void Game::renderObjects() {
     auto objects = this->objects;
@@ -199,12 +217,26 @@ SDL_Rect toSDLRect(Rect r) {
 
 const char *bgTexture(const char *texture) {
     if(strcmp(texture, "bridge") == 0) {
+=======
+const char *bgTexture(const char *texture)
+{
+    if(strcmp(texture, "bridge") == 0)
+        {
+>>>>>>> Stashed changes
         return "water";
-    } else if(strcmp(texture, "cannon") == 0) {
-        return "background";
-    } else if(strcmp(texture, "mario") == 0) {
-        return "background";
     }
+    else if(strcmp(texture, "cannon") == 0)
+     {
+        return "background";
+<<<<<<< Updated upstream
+    } else if(strcmp(texture, "mario") == 0) {
+=======
+    }
+     else if(strcmp(texture, "mario_start") == 0)
+        {
+>>>>>>> Stashed changes
+        return "background";
+        }
 
     return NULL;
 }

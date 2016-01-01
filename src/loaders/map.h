@@ -8,7 +8,8 @@
 #include "../tools/files.h"
 #include "../tools/strings.h"
 
-class MapLoader {
+class MapLoader
+ {
     std::string prefix;
 
 public:

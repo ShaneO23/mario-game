@@ -35,18 +35,39 @@ Map *ParseMap(const std::string &data) {
 }
 
 // Converts a level map's char to it's corresponding texture/object
-const char *CharToTile(char ch) {
-    switch(ch) {
+const char *CharToTile(char ch)
+ {
+    switch(ch)
+    {
         case '.':
             return "background";
         case 'W':
             return "water";
+<<<<<<< Updated upstream
         case 'M':
             return "mario";
+=======
+        case 'S':
+            return "mario_start";
+>>>>>>> Stashed changes
         case 'C':
-            return "cannon";
+            return "dollar";
         case 'B':
             return "bridge";
+        case 'F':
+            return "flagpole";
+        case 'B':
+            return "bombe";
+        case 'T':
+            return "tortuer";
+        case 'G':
+            return "tortuev";
+
+
     }
     return "background";
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

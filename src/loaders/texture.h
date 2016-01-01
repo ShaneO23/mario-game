@@ -6,7 +6,8 @@
 
 #include <SDL2/SDL.h>
 
-class TextureLoader {
+class TextureLoader
+ {
     std::string prefix;
     SDL_Renderer *renderer;
     std::map<std::string, SDL_Texture*> *cache;

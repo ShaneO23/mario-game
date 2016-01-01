@@ -33,15 +33,18 @@ SDL_Texture *TextureLoader::Load(const string &name) {
     return this->cache->at(name);
 }
 
-string TextureLoader::filename(const string &name) {
+string TextureLoader::filename(const string &name)
+{
     return this->prefix + name + ".bmp";
 }
 
-SDL_Texture *TextureLoader::loadFromDisk(const string &name) {
+SDL_Texture *TextureLoader::loadFromDisk(const string &name)
+{
     return IUTSDL_LoadTexture(this->renderer, this->filename(name).c_str() ,0xFF,0xFF,0xFF);
 }
 
-bool TextureLoader::Has(const string &name) {
+bool TextureLoader::Has(const string &name)
+{
     return this->cache->count(name) > 0;
 }
 
