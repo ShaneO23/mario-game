@@ -38,11 +38,8 @@ int main(int argc, char* argv[])
         }
 
     // Setup renderer
-    sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if(sdlRenderer == NULL) {
-        // Fallback to software only if hardware acceleration is not available
-        sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_SOFTWARE);
-    }
+    // Fallback to software only if hardware acceleration is not available
+    sdlRenderer = SDL_CreateRenderer(pScreen, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC);
 
     // Nicely rescale the renderer
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
