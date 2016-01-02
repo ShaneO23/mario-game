@@ -112,7 +112,7 @@ void Game::Run()
 
         Object *bombe = this->objects->at(1);
         bombe->X = 200 + 50*cos(t/50/(2*pi));
-        bombe->Y = 200 + 50*sin(t/50/(2*pi));
+       // stop the bomb going in a  circle bombe->Y = 200 + 50*sin(t/50/(2*pi));
 
 
         // Detect collisions
