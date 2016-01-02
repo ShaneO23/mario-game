@@ -3,8 +3,8 @@
 
 #include "./types.h"
 
-struct Bomb : Object {
-    Bomb() {
+struct Bombe : Object {
+    Bombe() {
         this->Width = 34;
         this->Height = 34;
     }

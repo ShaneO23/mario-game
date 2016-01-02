@@ -30,7 +30,7 @@ Game::Game(SDL_Renderer *renderer) {
     // Setup objects
     this->objects = new std::vector<Object *>();
     this->objects->push_back(mario);
-    this->objects->push_back(new Bomb());
+    this->objects->push_back(new Bombe());
 }
 
 Game::~Game() {
@@ -110,12 +110,13 @@ void Game::Run()
                 break;
         }
 
-        Object *bomb = this->objects->at(1);
-        bomb->X = 200 + 50*cos(t/50/(2*pi));
-        bomb->Y = 200 + 50*sin(t/50/(2*pi));
+        Object *bombe = this->objects->at(1);
+        bombe->X = 200 + 50*cos(t/50/(2*pi));
+        bombe->Y = 200 + 50*sin(t/50/(2*pi));
 
 
         // Detect collisions
+        //if *mario
 
         // Render
         this->render();
