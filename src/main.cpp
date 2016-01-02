@@ -1,7 +1,7 @@
 #include "game.h"
 #include "IUTSDL.h"
 
-#define TITRE "Mario GEII"
+#define TITRE "Shane's Mario Game GEII"
 
 // Dimensions de la grille
 #define NBL 20          // Nombre de lignes
@@ -17,6 +17,7 @@
 
 int main(int argc, char* argv[])
  {
+
     // Window
     SDL_Window   *pScreen=NULL;
     // Video Buffer
