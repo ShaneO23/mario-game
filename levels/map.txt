@@ -7,7 +7,7 @@
 ....M..X.MM.G.M....MMMWWWWWWWWWWWWW    
 ....M.X..MM...M....MMMWWWWWWWWWWWWW    
 ....M.X.XMMX.XM....MMMWWWWWWWWWWWWW    
-....MCX.......M.......MMMMMMMMMMMMM    
+....MCX.......M....MMMMMMMMMMMMMMMM    
 WBBWWW........M.........M..........    
 .....M...MMMMM.MM.......M..........    
 .....M...MMC.....T..MXXCM.XX.MMMM..    

@@ -15,13 +15,49 @@
 #define SCREEN_W NBC*CASE_W
 #define SCREEN_H NBL*CASE_H
 
+#define MOVE_LEFT    0
+#define MOVE_RIGHT   1
+#define MOVE_UP      2
+#define MOVE_DOWN    3
+
+
+char gTitle[100] = "";
+
+Uint32 callback( Uint32 interval, void* param )
+{
+    static int compteur = 0 ;
+
+    compteur+=interval;
+
+    sprintf(gTitle,"Compteur : %d ...", compteur);
+
+    return interval;
+}
+
 int main(int argc, char* argv[])
  {
 
+
+    // Rappel : la console reste utilisable
+    printf("\nVous pouvez faire des traces par printf sur la fenetre console pour debugger ... \n") ;
+    printf("Le point de depart va s'afficher.\nUtiliser les fleches pour deplacer Mario\nFermer la fenetre pour terminer\n") ;
+    SDL_Delay(2000) ;
+
+
+
+
+
+
     // Window
     SDL_Window   *pScreen=NULL;
+     SDL_SetWindowTitle(pScreen, gTitle);
+    // Création d'un timer pour affichage du titre. La fonction callback sera appellée périodiquement toutes les 100ms
+    SDL_TimerID timerID = SDL_AddTimer(100, callback, NULL );
+    //SDL_Window   *pScreen=NULL;
+
     // Video Buffer
     SDL_Renderer *sdlRenderer=NULL;
+
 
     // Init SDL with feature: video, timer
     if( IUTSDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER) != NO_ERROR )
