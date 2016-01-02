@@ -208,13 +208,7 @@ SDL_Rect toSDLRect(Rect r) {
 const char *bgTexture(const char *texture) {
     if(strcmp(texture, "bridge") == 0) {
         return "water";
-    } else if(strcmp(texture, "cannon") == 0) {
-        return "background";
-    } else if(strcmp(texture, "mario") == 0) {
-        return "background";
-    } else if(strcmp(texture, "mario_start") == 0) {
-        return "background";
     }
 
-    return NULL;
+    return "background";
 }
