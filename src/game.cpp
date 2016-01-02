@@ -22,7 +22,7 @@ Game::Game(SDL_Renderer *renderer) {
     this->textureLoader = new TextureLoader("./images/", this->renderer);
 
     // Load map
-    this->map = this->mapLoader->Load("sample.txt");
+    this->map = this->mapLoader->Load("map.txt");
 
     // Setup mario
     this->mario = new Mario();
@@ -207,7 +207,7 @@ SDL_Rect toSDLRect(Rect r) {
 const char *bgTexture(const char *texture) {
     if(strcmp(texture, "bridge") == 0) {
         return "water";
-    } else if(strcmp(texture, "cannon") == 0) {
+    } else if(strcmp(texture, "bomb") == 0) {
         return "background";
     } else if(strcmp(texture, "mario") == 0) {
         return "background";
