@@ -54,7 +54,7 @@ const char *CharToTile(char ch)
         case 'F':
             return "flagpole";
         case 'X':
-            return "bombe";
+            return "cannon";
         case 'T':
             return "tortuer";
         case 'G':
