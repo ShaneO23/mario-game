@@ -1,12 +1,12 @@
 ....M....MM........MMMWWWWWWWWWWWWW    
 ....M.XX.MM...M....MMMWWWWWWWWWWWWW    
-....M..X.MM.T.M....MMMWWWWWWWWWWWWW    
+....M..X.MM.T.M..O.MMMWWWWWWWWWWWWW    
 ....M.X..MM...M....MMMWWWWWWWWWWWWW    
-....M.X.XMMX.XM....MMMWWWWWWWWWWWWW    
+....M.X.XMMX.XM..O.MMMWWWWWWWWWWWWW    
 ....M.X..MM...M....MMMWWWWWWWWWWWWW      
-....M..X.MM.G.M....MMMWWWWWWWWWWWWW    
+....M..X.MM.G.M..O.MMMWWWWWWWWWWWWW    
 ....M.X..MM...M....MMMWWWWWWWWWWWWW    
-....M.X.XMMX.XM....MMMWWWWWWWWWWWWW    
+....M.X.XMMX.XM..O.MMMWWWWWWWWWWWWW    
 ....MCX.......M....MMMMMMMMMMMMMMMM    
 WBBWWW........M.........M..........    
 .....M...MMMMM.MM.......M..........    
