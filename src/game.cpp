@@ -6,6 +6,7 @@
 #include <math.h>
 #include <string.h>
 
+
 typedef enum Direction {
     MOVE_NONE,
     MOVE_LEFT,
@@ -37,6 +38,18 @@ Game::~Game() {
     delete(this->mapLoader);
     delete(this->textureLoader);
     delete(this->objects);
+}
+SDL_Texture *pTextureMario[4] ;
+
+void initTextures(SDL_Renderer *sdlRenderer)
+{
+
+    pTextureMario[MOVE_LEFT]=IUTSDL_LoadTexture(sdlRenderer, "mario-gauche.bmp" ,0xFF,0xFF,0xFF);
+    pTextureMario[MOVE_RIGHT]=IUTSDL_LoadTexture(sdlRenderer, "mario-droite.bmp" ,0xFF,0xFF,0xFF);
+    pTextureMario[MOVE_UP]=IUTSDL_LoadTexture(sdlRenderer, "mario-haut.bmp" ,0xFF,0xFF,0xFF);
+    pTextureMario[MOVE_DOWN]=IUTSDL_LoadTexture(sdlRenderer, "mario-bas.bmp" ,0xFF,0xFF,0xFF);
+
+
 }
 
 void Game::Run()
@@ -97,22 +110,22 @@ void Game::Run()
         //this->mario->Y = 80;
         switch(direction) {
             case MOVE_RIGHT:
-                this->mario->X += 3;
+                this->mario->X += 34;
                 break;
             case MOVE_LEFT:
-                this->mario->X -= 3;
+                this->mario->X -= 34;
                 break;
             case MOVE_DOWN:
-                this->mario->Y += 3;
+                this->mario->Y += 34;
                 break;
             case MOVE_UP:
-                this->mario->Y -= 3;
+                this->mario->Y -= 34;
                 break;
         }
 
         Object *bombe = this->objects->at(1);
         bombe->X = 200 + 50*cos(t/50/(2*pi));
-       // stop the bomb going in a  circle bombe->Y = 200 + 50*sin(t/50/(2*pi));
+        //bombe->Y = 200 + 50*sin(t/50/(2*pi));
 
 
         // Detect collisions
