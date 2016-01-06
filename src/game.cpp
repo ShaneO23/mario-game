@@ -39,18 +39,6 @@ Game::~Game() {
     delete(this->textureLoader);
     delete(this->objects);
 }
-SDL_Texture *pTextureMario[4] ;
-
-void initTextures(SDL_Renderer *sdlRenderer)
-{
-
-    pTextureMario[MOVE_LEFT]=IUTSDL_LoadTexture(sdlRenderer, "mario-gauche.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_RIGHT]=IUTSDL_LoadTexture(sdlRenderer, "mario-droite.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_UP]=IUTSDL_LoadTexture(sdlRenderer, "mario-haut.bmp" ,0xFF,0xFF,0xFF);
-    pTextureMario[MOVE_DOWN]=IUTSDL_LoadTexture(sdlRenderer, "mario-bas.bmp" ,0xFF,0xFF,0xFF);
-
-
-}
 
 void Game::Run()
 {
