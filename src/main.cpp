@@ -1,6 +1,5 @@
 #include "game.h"
 #include "IUTSDL.h"
-#include "Windows.h"
 
 #define TITRE "Shane's Mario Game GEII"
 
@@ -24,37 +23,13 @@
 
 char gTitle[100] = "";
 
-
 Uint32 callback( Uint32 interval, void* param )
 {
     static int compteur = 0 ;
 
     compteur+=interval;
-    int seconds;
-    int total_time =60;
-    int game_time;
-    int rest_time =0;
-    // Computer time
-    SYSTEMTIME t;
-    GetSystemTime(&t);
 
-    seconds=compteur / 1000 ;
-    game_time=seconds;
-    game_time -=4;
-    rest_time=total_time - game_time;
-
-        if (total_time<seconds)
-        {
-            sprintf(gTitle,"NO Time left !!");
-            SDL_Delay(1000);
-            printf(gTitle,"The is going to close in %d second !",rest_time);
-            SDL_Delay(1000);
-            exit(0);
-        }
-
-
-
-    sprintf(gTitle,"%d: %d: %d | Game time: %d",t.wHour+1,t.wMinute,t.wSecond,seconds);
+    sprintf(gTitle,"Compteur : %d ...", compteur);
 
     return interval;
 }
