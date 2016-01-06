@@ -1,8 +1,14 @@
 #include "game.h"
+<<<<<<< HEAD
 #include "IUTSDL.h"
 #include "Windows.h"
 //Titre de la fenetre
 #define TITRE "Shane Mario Game"
+=======
+#include "IUTSDL.h"
+
+#define TITRE "Shane's Mario Game GEII"
+>>>>>>> origin/master
 
 // Dimensions de la grille
 #define NBL 20          // Nombre de lignes
@@ -14,6 +20,7 @@
 
 // Dimensions de l'écran
 #define SCREEN_W NBC*CASE_W
+<<<<<<< HEAD
 #define SCREEN_H NBL*CASE_H
 
 #define MOVE_LEFT    0
@@ -58,46 +65,43 @@ Uint32 callback( Uint32 interval, void* param )
 
     return interval;
 }
+=======
+#define SCREEN_H NBL*CASE_H
 
-int main(int argc, char* argv[])
- {
+char gTitle[100] = "";
 
+Uint32 callback( Uint32 interval, void* param )
+{
+    static int compteur = 0 ;
+>>>>>>> origin/master
 
-    // Rappel : la console reste utilisable
-    printf("\nVous pouvez faire des traces par printf sur la fenetre console pour debugger ... \n") ;
-    printf("Le point de depart va s'afficher.\nUtiliser les fleches pour deplacer Mario\nFermer la fenetre pour terminer\n") ;
-    SDL_Delay(2000) ;
+    compteur+=interval;
 
+    sprintf(gTitle,"Compteur : %d ...", compteur);
 
+    return interval;
+}
 
-
-
-
+int main(int argc, char* argv[]) {
     // Window
-    SDL_Window   *pScreen=NULL;
-     SDL_SetWindowTitle(pScreen, gTitle);
-    // Création d'un timer pour affichage du titre. La fonction callback sera appellée périodiquement toutes les 100ms
-    SDL_TimerID timerID = SDL_AddTimer(100, callback, NULL );
-    //SDL_Window   *pScreen=NULL;
+    SDL_Window *pScreen = NULL;
 
     // Video Buffer
-    SDL_Renderer *sdlRenderer=NULL;
+    SDL_Renderer *sdlRenderer = NULL;
 
 
     // Init SDL with feature: video, timer
-    if( IUTSDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER) != NO_ERROR )
-    {
+    if( IUTSDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER) != NO_ERROR ) {
         printf("Error: IUTSDL\n") ;
         exit(1) ;
     }
 
     // Create Window
     pScreen = IUTSDL_CreateWindow(TITRE, SCREEN_W, SCREEN_H);
-    if (pScreen == NULL)
-        {
-            printf("Error: IUTSDL\n") ;
-            exit(1) ;
-        }
+    if (pScreen == NULL) {
+        printf("Error: IUTSDL\n") ;
+        exit(1) ;
+    }
 
     // Setup renderer
     // Fallback to software only if hardware acceleration is not available
