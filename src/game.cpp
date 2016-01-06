@@ -137,6 +137,11 @@ void Game::Run()
         }
         printf("\n");
 
+        // Update objects
+        for(auto &obj: *this->objects) {
+            obj->Update(t);
+        }
+
         // Render
         this->render();
     }
@@ -249,13 +254,11 @@ void Game::renderMap() {
 }
 
 void Game::renderObjects() {
-    auto t = this->ticks();
     auto objects = this->objects;
-
 
     for(auto &obj : *objects) {
         // Get object's sprite
-        auto sprite = obj->Render(t);
+        auto sprite = obj->Render();
 
         // Get sprite's rectangle
         auto rect = toSDLRect(sprite);

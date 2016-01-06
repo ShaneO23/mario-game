@@ -73,19 +73,25 @@ struct Sprite : Rect {
 };
 
 struct Renderable {
-    virtual Sprite Render(int t) {
+    virtual Sprite Render() {
         return Sprite(NULL, 0, 0, 0, 0);
     }
 };
 
 struct Object : Typed, Rect, Renderable {
+    int t;
+
     // Returns an object's BoundingRect
     // by default this is a copy of it's rectangle
     virtual Rect BoundingRect() {
         return Rect(*(Rect*)(this));
     }
 
-    virtual Sprite Render(int t) {
+    virtual void Update(int t) {
+        this->t = t;
+    }
+
+    virtual Sprite Render() {
         return Sprite(
             this->Type(),
             this->X,

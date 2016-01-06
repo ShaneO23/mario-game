@@ -13,10 +13,10 @@ struct Turtle : Object {
         return "turtle";
     }
 
-    Sprite Render(int t) {
+    Sprite Render() {
         return Sprite(
             "tortuev",
-            this->X+7,
+            this->X+7 + 60*sin(this->t/100/(2*3.14)),
             this->Y+7,
             20,
             20
@@ -26,7 +26,7 @@ struct Turtle : Object {
     // Adjust bounding rect for sprite
     Rect BoundingRect() {
         return Rect(
-            this->X+7,
+            this->X+7 + 60*sin(this->t/100/(2*3.14)),
             this->Y+7,
             20,
             20
