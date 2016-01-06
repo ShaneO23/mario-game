@@ -15,7 +15,12 @@ struct Dollar : Object {
 
     // Adjust bounding rect for sprite
     Rect BoundingRect() {
-        return Object::BoundingRect();
+        return Rect(
+            this->X+7,
+            this->Y+7,
+            20,
+            20
+        );
     }
 };
 
