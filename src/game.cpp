@@ -124,7 +124,9 @@ void Game::Run()
         // Detect collisions
         //if *mario
         for(auto &obj: *this->objects) {
-            if(this->mario->BoundingRect().Intersects(obj->BoundingRect())) {
+            auto r1 = this->mario->BoundingRect();
+            auto r2 = obj->BoundingRect();
+            if(r1.Intersects(r2) || r2.Intersects(r1)) {
                 printf("Mario hit %s at %d, %d\n", obj->Type(), obj->X, obj->Y);
             }
         }
