@@ -255,6 +255,8 @@ Object *tileToObject(const char *tile) {
         return new Dollar();
     } else if(strcmp(tile, "turtle") == 0) {
         return new Turtle();
+    } else if(strcmp(tile, "plant") == 0) {
+        return new Plant();
     }
     return NULL;
 }
