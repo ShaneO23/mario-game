@@ -6,6 +6,11 @@
 #include <math.h>
 #include <string.h>
 
+// Local functions
+Object *tileToObject(const char *tile);
+std::vector<Object *> *loadObjects(Map *map);
+const char *bgTexture(const char *texture);
+SDL_Rect toSDLRect(Rect r);
 
 typedef enum Direction {
     MOVE_NONE,
@@ -29,9 +34,9 @@ Game::Game(SDL_Renderer *renderer) {
     this->mario = new Mario();
 
     // Setup objects
-    this->objects = new std::vector<Object *>();
+    this->objects = loadObjects(this->map);
     this->objects->push_back(mario);
-    this->objects->push_back(new Bombe());
+    //this->objects->push_back(new Bombe());
 }
 
 Game::~Game() {
@@ -111,13 +116,24 @@ void Game::Run()
                 break;
         }
 
-        Object *bombe = this->objects->at(1);
-        bombe->X = 200 + 50*cos(t/50/(2*pi));
+        //Object *bombe = this->objects->at(1);
+        //bombe->X = 200 + 50*cos(t/50/(2*pi));
         //bombe->Y = 200 + 50*sin(t/50/(2*pi));
 
 
         // Detect collisions
         //if *mario
+        for(auto &obj: *this->objects) {
+            if(this->mario->BoundingRect().Intersects(obj->BoundingRect())) {
+                printf("Mario hit %s at %d, %d\n", obj->Type(), obj->X, obj->Y);
+            }
+        }
+
+        // Dump objects
+        for(auto &obj: *this->objects) {
+            printf("%s at %d, %d\n", obj->Type(), obj->X, obj->Y);
+        }
+        printf("\n");
 
         // Render
         this->render();
@@ -132,7 +148,54 @@ void Game::render()
     IUTSDL_RefreshScreen(this->renderer);
 }
 
-const char *bgTexture(const char *texture);
+std::vector<Object *> *loadObjects(Map *map) {
+    auto objects = new std::vector<Object *>();
+
+    auto cellW = 34;
+    auto cellH = 34;
+
+    // Offsets
+    int y = 0;
+    for(auto &tileLine : map->Tiles()) {
+        int x = 0;
+        for(const char *tile : tileLine) {
+            // Calculate position
+            int px = x * cellW;
+            int py = y * cellH;
+
+            // Increment x
+            x++;
+
+            // Resolve object
+            auto obj = tileToObject(tile);
+            if(obj == NULL) {
+                // If not resolved, skip
+                continue;
+            }
+
+            // Set position
+            obj->X = px;
+            obj->Y = py;
+
+            printf("Loaded object (%d, %d): %s\n", obj->X, obj->Y, obj->Type());
+
+            // Add object
+            objects->push_back(obj);
+        }
+        // Increment y
+        y++;
+    }
+
+    return objects;
+}
+
+Object *tileToObject(const char *tile) {
+    if(strcmp(tile, "bombe") == 0) {
+        return new Bombe();
+    }
+    return NULL;
+}
+
 void Game::renderMap() {
     auto map = this->map;
 
@@ -175,7 +238,6 @@ void Game::renderMap() {
     }
 }
 
-SDL_Rect toSDLRect(Rect r);
 void Game::renderObjects() {
     auto objects = this->objects;
 
