@@ -1,8 +1,8 @@
 #include "game.h"
 #include "IUTSDL.h"
 #include "Windows.h"
-
-#define TITRE "Shane's Mario Game GEII"
+//Titre de la fenetre
+#define TITRE "Shane Mario Game"
 
 // Dimensions de la grille
 #define NBL 20          // Nombre de lignes
@@ -54,7 +54,7 @@ Uint32 callback( Uint32 interval, void* param )
 
 
 
-    sprintf(gTitle,"%d: %d: %d | Game time: %d",t.wHour+1,t.wMinute,t.wSecond,seconds);
+    sprintf(gTitle,"%d: %d: %d  Game time: %d",t.wHour+1,t.wMinute,t.wSecond,seconds);
 
     return interval;
 }
