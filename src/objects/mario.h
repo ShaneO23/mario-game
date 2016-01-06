@@ -44,16 +44,6 @@ struct Mario : Object {
     }
 
     void Move(int x, int y) {
-        if(this->X + x < 0) {
-            x = 0;
-        }
-        if(this->Y + y < 0) {
-            y = 0;
-        }
-        if(x == 0 && y == 0) {
-            return;
-        }
-
         this->prevX = this->X;
         this->prevY = this->Y;
         Point::Move(x, y);

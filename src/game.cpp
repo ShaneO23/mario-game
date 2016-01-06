@@ -102,18 +102,20 @@ void Game::Run()
         auto t = currentTicks;
         //this->mario->X = 50+50*sin(t/50/(2*pi));
         //this->mario->Y = 80;
+        int dx = 0;
+        int dy = 0;
         switch(direction) {
             case MOVE_RIGHT:
-                this->mario->Move(+34, 0);
+                dx = 34;
                 break;
             case MOVE_LEFT:
-                this->mario->Move(-34, 0);
+                dx = -34;
                 break;
             case MOVE_DOWN:
-                this->mario->Move(0, +34);
+                dy = +34;
                 break;
             case MOVE_UP:
-                this->mario->Move(0, -34);
+                dy = -34;
                 break;
         }
 
@@ -121,6 +123,41 @@ void Game::Run()
         //bombe->X = 200 + 50*cos(t/50/(2*pi));
         //bombe->Y = 200 + 50*sin(t/50/(2*pi));
 
+        // Move mario
+        if(dx != 0 || dy != 0) {
+            // Mario's future position
+            int x = this->mario->X+dx;
+            int y = this->mario->Y+dy;
+
+            // Position in grid
+            int cx = x/34;
+            int cy = y/34;
+
+            // Get grid tile
+            const char *tile;
+            if(
+                (cx < 0) ||
+                (cy < 0) ||
+                (cx >= this->map->Width()) ||
+                (cy >= this->map->Height())
+            ) {
+                // out of bounds
+                tile = NULL;
+            } else {
+                tile = this->map->Tiles().at(cy).at(cx);
+            }
+
+            // Check if can move
+            if(
+                tile == NULL ||
+                (strcmp(tile, "water") == 0) ||
+                (strcmp(tile, "mur") == 0)
+            ) {
+                // Can't move
+            } else {
+                this->mario->Move(dx, dy);
+            }
+        }
 
         // Detect collisions
         //if *mario
