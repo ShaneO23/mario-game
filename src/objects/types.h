@@ -33,11 +33,13 @@ struct Rect : Point {
     // Insersects returns true if both Rectangles intersect
     bool Intersects(const Rect &r) {
         // They intersect if we contain one of it's 4 corners
+        auto a = *this;
+        auto b = r;
         return (
-            this->Contains(Point{r.X, r.Y}) ||
-            this->Contains(Point{r.X+r.Width, r.Y}) ||
-            this->Contains(Point{r.X, r.Y+r.Height}) ||
-            this->Contains(Point{r.X+r.Width, r.Y+r.Height})
+            a.X < b.X+b.Width &&
+            b.X < a.X+a.Width &&
+            a.Y < b.Y+b.Height &&
+            b.Y < a.Y+a.Height
         );
     }
 
