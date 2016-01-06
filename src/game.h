@@ -29,6 +29,7 @@ class Game {
     void render();
     void renderMap();
     void renderObjects();
+    void renderObject(Object *obj);
 };
 
 

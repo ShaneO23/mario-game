@@ -4,16 +4,19 @@
 #include "./types.h"
 
 struct Mario : Object {
+    int Coins;
     int prevX;
     int prevY;
 
     Mario() {
         this->X = 0;
         this->Y = 0;
-        this->prevX = 0;
-        this->prevY = 0;
         this->Width = 34;
         this->Height = 34;
+
+        this->Coins = 0;
+        this->prevX = 0;
+        this->prevY = 0;
     }
 
     const char *Type() {

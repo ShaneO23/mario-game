@@ -7,6 +7,7 @@
 #include <string.h>
 
 // Local functions
+bool isBackgroundTile(const char *tile);
 Object *tileToObject(const char *tile);
 std::vector<Object *> *loadObjects(Map *map);
 const char *bgTexture(const char *texture);
@@ -35,7 +36,7 @@ Game::Game(SDL_Renderer *renderer) {
 
     // Setup objects
     this->objects = loadObjects(this->map);
-    this->objects->push_back(mario);
+    //this->objects->push_back(mario);
     //this->objects->push_back(new Bombe());
 }
 
@@ -123,19 +124,29 @@ void Game::Run()
 
         // Detect collisions
         //if *mario
+        int i = 0;
         for(auto &obj: *this->objects) {
             auto r1 = this->mario->BoundingRect();
             auto r2 = obj->BoundingRect();
+
+            // Remove objects mario hits
             if(r1.Intersects(r2) || r2.Intersects(r1)) {
                 printf("Mario hit %s at %d, %d\n", obj->Type(), obj->X, obj->Y);
+                if(strcmp(obj->Type(), "dollar") == 0) {
+                    this->mario->Coins += 1;
+                    printf("Mario has %d coins\n", this->mario->Coins);
+                }
+                this->objects->erase(this->objects->begin() + i);
+            } else {
+                i++;
             }
         }
 
         // Dump objects
         for(auto &obj: *this->objects) {
-            printf("%s at %d, %d\n", obj->Type(), obj->X, obj->Y);
+            //printf("%s at %d, %d\n", obj->Type(), obj->X, obj->Y);
         }
-        printf("\n");
+        //printf("\n");
 
         // Update objects
         for(auto &obj: *this->objects) {
@@ -231,12 +242,19 @@ void Game::renderMap() {
             rect.w = cellW;
             rect.h = cellH;
 
+            // Increment x
+            x++;
+
             // Render BG
             auto bg = bgTexture(tile);
-            if(bg != NULL)
-                {
+            if(bg != NULL) {
                 auto bgT = this->textureLoader->Load(bg);
                 SDL_RenderCopy(this->renderer, bgT, NULL, &rect);
+            }
+
+            // Skip non background tiles
+            if(!isBackgroundTile(tile)) {
+                continue;
             }
 
             // Load texture
@@ -244,9 +262,6 @@ void Game::renderMap() {
 
             // Render
             SDL_RenderCopy(this->renderer, texture, NULL, &rect);
-
-            // Increment x
-            x++;
         }
         // Increment y
         y++;
@@ -254,27 +269,42 @@ void Game::renderMap() {
 }
 
 void Game::renderObjects() {
-    auto objects = this->objects;
-
-    for(auto &obj : *objects) {
-        // Get object's sprite
-        auto sprite = obj->Render();
-
-        // Get sprite's rectangle
-        auto rect = toSDLRect(sprite);
-
-        // Load texture
-        auto texture = this->textureLoader->Load(std::string(sprite.Name));
-
-        // Render
-        SDL_RenderCopy(this->renderer, texture, NULL, &rect);
-        // Debug render
-        if(true) {
-            auto boundingRect = toSDLRect(obj->BoundingRect());
-            SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-            SDL_RenderDrawRect(this->renderer, &boundingRect);
-        }
+    for(auto &obj : *this->objects) {
+        this->renderObject(obj);
     }
+    this->renderObject(this->mario);
+}
+
+void Game::renderObject(Object *obj) {
+    // Get object's sprite
+    auto sprite = obj->Render();
+
+    // Get sprite's rectangle
+    auto rect = toSDLRect(sprite);
+
+    // Load texture
+    auto texture = this->textureLoader->Load(std::string(sprite.Name));
+
+    // Render
+    SDL_RenderCopy(this->renderer, texture, NULL, &rect);
+    // Debug render
+    if(true) {
+        auto boundingRect = toSDLRect(obj->BoundingRect());
+        SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderDrawRect(this->renderer, &boundingRect);
+    }
+}
+
+bool isBackgroundTile(const char *tile) {
+    if(
+        (strcmp(tile, "mur") == 0)        ||
+        (strcmp(tile, "water") == 0)      ||
+        (strcmp(tile, "bridge") == 0)     ||
+        (strcmp(tile, "background") == 0)
+    ) {
+        return true;
+    }
+    return false;
 }
 
 SDL_Rect toSDLRect(Rect r) {
