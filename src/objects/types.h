@@ -22,6 +22,14 @@ struct Rect : Point {
     int Width;
     int Height;
 
+    Rect() {}
+    Rect(int x, int y, int width, int height) {
+        this->X = x;
+        this->Y = y;
+        this->Width = width;
+        this->Height = height;
+    }
+
     // Insersects returns true if both Rectangles intersect
     bool Intersects(const Rect &r) {
         // They intersect if we contain one of it's 4 corners
