@@ -103,16 +103,16 @@ void Game::Run()
         //this->mario->Y = 80;
         switch(direction) {
             case MOVE_RIGHT:
-                this->mario->X += 34;
+                this->mario->Move(+34, 0);
                 break;
             case MOVE_LEFT:
-                this->mario->X -= 34;
+                this->mario->Move(-34, 0);
                 break;
             case MOVE_DOWN:
-                this->mario->Y += 34;
+                this->mario->Move(0, +34);
                 break;
             case MOVE_UP:
-                this->mario->Y -= 34;
+                this->mario->Move(0, -34);
                 break;
         }
 
