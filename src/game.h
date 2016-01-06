@@ -5,8 +5,10 @@
 
 #include "loaders/map.h"
 #include "loaders/texture.h"
+
 #include "objects/mario.h"
 #include "objects/bomb.h"
+#include "objects/dollar.h"
 
 class Game {
     SDL_Renderer            *renderer;

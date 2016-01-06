@@ -192,6 +192,8 @@ std::vector<Object *> *loadObjects(Map *map) {
 Object *tileToObject(const char *tile) {
     if(strcmp(tile, "bombe") == 0) {
         return new Bombe();
+    } else if(strcmp(tile, "dollar") == 0) {
+        return new Dollar();
     }
     return NULL;
 }
