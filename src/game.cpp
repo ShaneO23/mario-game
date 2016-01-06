@@ -242,11 +242,14 @@ void Game::renderObjects() {
     auto objects = this->objects;
 
     for(auto &obj : *objects) {
-        // Get object's rectange
-        auto rect = toSDLRect(*obj);
+        // Get object's sprite
+        auto sprite = obj->Render();
+
+        // Get sprite's rectangle
+        auto rect = toSDLRect(sprite);
 
         // Load texture
-        auto texture = this->textureLoader->Load(std::string(obj->Type()));
+        auto texture = this->textureLoader->Load(std::string(sprite.Name));
 
         // Render
         SDL_RenderCopy(this->renderer, texture, NULL, &rect);

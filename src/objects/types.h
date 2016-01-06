@@ -7,12 +7,6 @@ struct Typed {
     }
 };
 
-struct Renderable {
-    virtual void Render() {
-        return;
-    }
-};
-
 struct Point {
     int X;
     int Y;
@@ -57,11 +51,38 @@ struct Rect : Point {
     }
 };
 
+struct Sprite : Rect {
+    const char *Name;
+    Sprite(const char *name, int x, int y, int width, int height) {
+        this->Name = name;
+        this->X = x;
+        this->Y = y;
+        this->Width = width;
+        this->Height = height;
+    }
+};
+
+struct Renderable {
+    virtual Sprite Render() {
+        return Sprite(NULL, 0, 0, 0, 0);
+    }
+};
+
 struct Object : Typed, Rect, Renderable {
     // Returns an object's BoundingRect
     // by default this is a copy of it's rectangle
     virtual Rect BoundingRect() {
         return Rect(*(Rect*)(this));
+    }
+
+    virtual Sprite Render() {
+        return Sprite(
+            this->Type(),
+            this->X,
+            this->Y,
+            this->Width,
+            this->Height
+        );
     }
 };
 
