@@ -22,12 +22,12 @@ struct Mario : Object {
 
     // Adjust bounding rect for sprite
     Rect BoundingRect() {
-        Rect r;
-        r.X = this->X+10;
-        r.Y = this->Y+4;
-        r.Width = 14;
-        r.Height = 30;
-        return r;
+        return Rect(
+            this->X+10,
+            this->Y+4,
+            14,
+            30
+        );
     }
 
     Sprite Render() {

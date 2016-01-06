@@ -15,12 +15,12 @@ struct Bombe : Object {
 
     // Adjust bounding rect for sprite
     Rect BoundingRect() {
-        Rect r;
-        r.X = this->X+5;
-        r.Y = this->Y+5;
-        r.Width = 20;
-        r.Height = 20;
-        return r;
+        return Rect(
+            this->X+5,
+            this->Y+5,
+            20,
+            20
+        );
     }
 };
 
