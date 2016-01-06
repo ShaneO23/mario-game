@@ -25,6 +25,7 @@ class Game {
     void Run();
 
     private:
+    int  ticks();
     void render();
     void renderMap();
     void renderObjects();

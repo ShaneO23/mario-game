@@ -73,7 +73,7 @@ struct Sprite : Rect {
 };
 
 struct Renderable {
-    virtual Sprite Render() {
+    virtual Sprite Render(int t) {
         return Sprite(NULL, 0, 0, 0, 0);
     }
 };
@@ -85,7 +85,7 @@ struct Object : Typed, Rect, Renderable {
         return Rect(*(Rect*)(this));
     }
 
-    virtual Sprite Render() {
+    virtual Sprite Render(int t) {
         return Sprite(
             this->Type(),
             this->X,

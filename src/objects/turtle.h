@@ -13,7 +13,7 @@ struct Turtle : Object {
         return "turtle";
     }
 
-    Sprite Render() {
+    Sprite Render(int t) {
         return Sprite(
             "tortuev",
             this->X+7,

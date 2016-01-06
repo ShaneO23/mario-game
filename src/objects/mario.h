@@ -30,7 +30,7 @@ struct Mario : Object {
         );
     }
 
-    Sprite Render() {
+    Sprite Render(int t) {
         return Sprite(
             this->directionalSprite(),
             this->X,

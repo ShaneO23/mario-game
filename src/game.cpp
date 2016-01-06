@@ -52,7 +52,7 @@ void Game::Run()
     // Our target FPS
     int FRAMERATE = 20;
     // Counter of previous ticks
-    int prevTicks = SDL_GetTicks();
+    int prevTicks = this->ticks();
 
     this->render();
     while(running) {
@@ -86,7 +86,7 @@ void Game::Run()
         }
 
         // Update ticks to compute FPS
-        int currentTicks = SDL_GetTicks();
+        int currentTicks = this->ticks();
         int deltaTicks = currentTicks - prevTicks;
         prevTicks = currentTicks;
 
@@ -191,6 +191,10 @@ std::vector<Object *> *loadObjects(Map *map) {
     return objects;
 }
 
+int Game::ticks() {
+    return SDL_GetTicks();
+}
+
 Object *tileToObject(const char *tile) {
     if(strcmp(tile, "bombe") == 0) {
         return new Bombe();
@@ -245,11 +249,13 @@ void Game::renderMap() {
 }
 
 void Game::renderObjects() {
+    auto t = this->ticks();
     auto objects = this->objects;
+
 
     for(auto &obj : *objects) {
         // Get object's sprite
-        auto sprite = obj->Render();
+        auto sprite = obj->Render(t);
 
         // Get sprite's rectangle
         auto rect = toSDLRect(sprite);
