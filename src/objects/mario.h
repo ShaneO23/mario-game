@@ -6,7 +6,7 @@
 struct Mario : Object {
     Mario() {
         this->X = 0;
-        this->Y = 0;
+        this->Y = -2;
         this->Width = 34;
         this->Height = 34;
     }
