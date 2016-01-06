@@ -9,7 +9,7 @@ struct Mario : Object {
 
     Mario() {
         this->X = 0;
-        this->Y = -2;
+        this->Y = 0;
         this->prevX = 0;
         this->prevY = 0;
         this->Width = 34;
@@ -41,6 +41,16 @@ struct Mario : Object {
     }
 
     void Move(int x, int y) {
+        if(this->X + x < 0) {
+            x = 0;
+        }
+        if(this->Y + y < 0) {
+            y = 0;
+        }
+        if(x == 0 && y == 0) {
+            return;
+        }
+
         this->prevX = this->X;
         this->prevY = this->Y;
         Point::Move(x, y);
@@ -59,7 +69,7 @@ struct Mario : Object {
         } else if(dy < 0) {
             return "mario-haut";
         }
-        return "mario_start";
+        return "mario";
     }
 };
 
