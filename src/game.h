@@ -9,6 +9,7 @@
 #include "objects/mario.h"
 #include "objects/bomb.h"
 #include "objects/dollar.h"
+#include "objects/turtle.h"
 
 class Game {
     SDL_Renderer            *renderer;

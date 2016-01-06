@@ -58,7 +58,7 @@ const char *CharToTile(char ch)
         case 'T':
             return "tortuer";
         case 'G':
-            return "tortuev";
+            return "turtle";
 
 
     }
