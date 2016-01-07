@@ -12,5 +12,6 @@ struct Flagpole : Object {
     const char *Type() {
         return "flagpole";
     }
+};
 
 #endif // FLAGPOLE_H_INCLUDED
