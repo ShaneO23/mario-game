@@ -1,6 +1,8 @@
 #ifndef OBJECTS_TYPES_H
 #define OBJECTS_TYPES_H
 
+#include <math.h>
+
 struct Typed {
     virtual const char *Type() {
         return "unknown";
