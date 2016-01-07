@@ -1,0 +1,6 @@
+#ifndef FLAGPOLE_H_INCLUDED
+#define FLAGPOLE_H_INCLUDED
+
+
+
+#endif // FLAGPOLE_H_INCLUDED

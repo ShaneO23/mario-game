@@ -11,6 +11,7 @@
 #include "objects/dollar.h"
 #include "objects/plant.h"
 #include "objects/turtle.h"
+#include "objects/flagpole.h"
 
 class Game {
     SDL_Renderer            *renderer;
