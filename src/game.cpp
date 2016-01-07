@@ -257,7 +257,10 @@ Object *tileToObject(const char *tile) {
         return new Turtle();
     } else if(strcmp(tile, "plant") == 0) {
         return new Plant();
+    } else if(strcmp(tile, "flagpole") == 0) {
+        return new Flagpole();
     }
+
     return NULL;
 }
 
