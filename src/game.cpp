@@ -172,11 +172,11 @@ void Game::Run()
                 if(strcmp(obj->Type(), "dollar") == 0) {
                     this->mario->Coins += 1;
                     printf("Mario has %d coins\n", this->mario->Coins);
+                    this->objects->erase(this->objects->begin() + i);
+                    i--;
                 }
-                this->objects->erase(this->objects->begin() + i);
-            } else {
-                i++;
             }
+            i++;
         }
 
         // Dump objects
